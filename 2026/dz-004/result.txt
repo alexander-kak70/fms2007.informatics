@@ -1,0 +1,7 @@
+C:\github\alexander-kak70\fms2007.informatics\.venv\Scripts\python.exe C:\github\alexander-kak70\fms2007.informatics\2026\dz-004\dz-004.py
+27
+35
+53
+72
+
+Process finished with exit code 0
