@@ -5,4 +5,5 @@
 for a in range(1, 10):
     for b in range(0, 10):
         if a + b + a * b == 23:
-            print(str(a) + str(b))
+            print(f"{a}{b}")
+            # print(a + b)
