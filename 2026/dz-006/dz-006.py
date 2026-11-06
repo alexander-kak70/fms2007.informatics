@@ -2,11 +2,11 @@
 
 ans = []
 k = int(input("введи число k(<=15): "))
-if k < 0 or k > 16:
+if k < 0 or k > 15:
     print("Введите число от 0 до 15!")
     exit(0)
 
-for i in range(0, k):
+for i in range(0, k + 1):
     ans.append(2 ** i)
 
 print(ans)
