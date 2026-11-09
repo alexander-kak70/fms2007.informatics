@@ -4,39 +4,47 @@
 # Пример: если n = 3, первые числа списка: [3, 6, 12, 14, 18, 26, 32, 35, 40, 44, ...].
 
 # поиск максимальной цифры в числе
-def getMaxDigit(number):
-    r = 0  # остаток от деления
+def get_max_digit(number):
     result = 0
     while number > 0:
         r = number % 10
-        number = int(number / 10)
+        number = number // 10
         result = max(result, r)
 
     return result
 
 
 # вычисление следующего элемента в списке
-def calculateNewListElement(list):
-    previousValue = getLastElement(list)
-    newValue = previousValue + getMaxDigit(previousValue)
-    return newValue
+def calculate_new_list_element(numbers):
+    previous_value = get_last_element(numbers)
+    new_value = previous_value + get_max_digit(previous_value)
+    return new_value
 
 
-def createList(n):
-    list = [n]
-    while getLastElement(list) < 33000:
-        list.append(calculateNewListElement(list))
-    return list
+def create_list(n):
+    if not 1 <= n < 100:
+        raise ValueError("Введите натуральное число от 1 до 99")
+
+    numbers = [n]
+    while get_last_element(numbers) < 33000:
+        numbers.append(calculate_new_list_element(numbers))
+    return numbers
 
 
-def getLastElement(list):
-    return list[len(list) - 1]
+def get_last_element(numbers):
+    return numbers[-1]
+
+
+def main_program():
+    try:
+        n = int(input("Введите натуральное число от 1 до 99: "))
+        numbers = create_list(n)
+    except ValueError:
+        print("Неверно набран номер!")
+        main_program()
+    else:
+        print(numbers)
 
 
 if __name__ == '__main__':
-    n = int(input("Введите число n меньше 100: "))
-    if n < 100:
-        print(createList(n))
-    else:
-        print("Введите число меньше 100")
-        exit(0)
+    main_program()
